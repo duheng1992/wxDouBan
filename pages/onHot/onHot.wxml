@@ -1,0 +1,21 @@
+
+<view class="cells">
+
+   <navigator url='/pages/movieDetail/movieDetail?id={{item.id}}' class='routea' wx:for="{{shopList}}" wx:key="{{index}}" >
+        <view class='item'>
+          <image src="{{item.images.small}}" />
+          <view class="meta">
+            <text class="name">{{item.title}}</text>
+            <text class="phone">分类：{{item.genres}}</text>
+            <text class="address">时长：{{item.durations}}</text>
+            <text class="hours">年份：{{item.year}}</text>
+          </view>
+      <view class="score">评分：{{item.rating.average}}</view>
+    </view>
+   </navigator> 
+</view>
+
+
+
+<view class="loadmore loading" wx:if="{{hasMore}}">正在加载...</view>
+<view class="loadmore" wx:else >没有更多内容了</view>

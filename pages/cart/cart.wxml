@@ -1,0 +1,54 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <!-- inputTyping监听每次输入 -->
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索"  focus="{{inputShowed}}" value="{{searchValue}}" bindconfirm='doSearch' bindinput='inputTyping'/>
+                    <view class="weui-icon-clear" wx:if="{{searchValue.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+        </view>
+        <!-- 显示搜索历史的版面 -->
+        <view class="weui-cells searchbar-result" wx:if="{{searchValue.length > 0}}" style="margin-top:0rpx;">
+            <view class="weui-cell" hover-class="weui-cell_active" wx:for="{{newTextList}}" wx:key="{{index}}" bindtap="searchBefore" >
+                <view class="weui-cell__bd" >
+                    <view data-text="{{item}}">{{item}}</view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+</view>
+
+
+<!-- 以上是搜索栏 -->
+
+<view class="cells">
+
+   <navigator url='/pages/movieDetail/movieDetail?id={{item.id}}' class='routea' wx:for="{{shopList}}" wx:key="{{index}}" >
+        <view class='item'>
+          <image src="{{item.images.small}}" />
+          <view class="meta">
+            <text class="name">{{item.title}}</text>
+            <text class="phone">分类：{{item.genres}}</text>
+            <text class="address">时长：{{item.durations}}</text>
+            <text class="hours">年份：{{item.year}}</text>
+          </view>
+      <view class="score">评分：{{item.rating.average}}</view>
+    </view>
+   </navigator> 
+</view>
+
+
+
+<view class="loadmore loading" wx:if="{{hasMore}}">正在加载...</view>
+<view class="loadmore" wx:else >没有更多内容了</view>

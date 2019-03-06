@@ -1,0 +1,7 @@
+// 自定义的js
+var joinArray = function () {
+  return [1,2,3]
+}
+module.exports = {
+  joinArray: joinArray
+}

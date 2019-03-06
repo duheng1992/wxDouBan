@@ -1,0 +1,59 @@
+<scroll-view scroll-y="true" class="timeline">
+    <!-- <loading hidden="{{!loading}}">loading...</loading> -->
+    <view class="detail-container">
+      <view class="box">
+      <!-- 顶部图片 --> 
+      <view class="image-view"> 
+        <image class="message-image"  bindtap="previewImage
+            data-original-pic="{{data.images.medium}}" 
+            wx:if="{{data.images.medium}}" 
+            src="{{data.images.medium}}" 
+            mode="widthFix"
+            lazy-load="true"
+        ></image>
+      </view>
+      <!-- 标题及评分 -->
+      <view class="title-show">
+        <text class="title-text">{{data.title}}</text>
+        <text>{{data.rating.average}} R</text>
+        <text>{{data.aka}}</text>
+      </view>
+      <!-- 简介 -->
+      <view class="intro">
+        <text class="intro-title">剧情简介</text>
+        <text class="intro-show">
+          {{data.summary}}
+        </text>
+      </view>
+      <!-- 预告片 -->
+      <view>
+        <!-- <video src="{{data.blooper_urls[0]}}" controls ></video> -->
+        <view>
+          <button bindtap="playVideo">播放预告片</button>
+        </view>
+      </view>
+      <!-- 影评 -->
+      <view class="intro">
+        <text class="intro-title">影评</text>
+        <view class="comment-item" wx:for="{{data.comments}}" wx:key="{{index}}">
+          <text class="com">简评：{{item.content}}\n</text>
+          <text class="time">时间：{{item.created_at}}</text>
+          <text class="user">\t\t\t用户：{{item.author.name}}</text>
+          <text class="user">\n评分：{{item.rating.value}}</text>
+        </view>
+      </view>
+
+      <!-- 剧照 -->
+      <view>
+        <image class="message-image"
+            data-original-pic="{{data.m_images}}" 
+            wx:if="{{data.m_images}}" 
+            src="{{data.m_images}}" 
+            mode="widthFix"
+            lazy-load="true"
+        ></image>
+      </view>
+
+      </view>
+    </view>
+</scroll-view>

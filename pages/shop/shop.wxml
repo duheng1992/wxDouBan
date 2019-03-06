@@ -1,0 +1,33 @@
+<scroll-view scroll-y="true" class="timeline">
+    <loading hidden="{{!loading}}">loading...</loading>
+    <view class="tweet-container" wx:for="{{movies}}" wx:key="{{index}}">
+        <view class="top-container">
+            <image class="card-avatar" src="{{item.images.small}}"></image>                
+            <view class="user-container">
+                <text class="card-name">{{item.title}}</text>
+                <text class="card-time">{{item.genres}} #{{item.year}}</text>
+            </view>
+        </view>
+        <view class="middle-container">
+            <text class="message-text">豆瓣评分 {{item.rating.average}}</text>
+            <image class="message-image"
+                data-original-pic="{{item.images.medium}}" 
+                wx:if="{{item.images.medium}}" 
+                src="{{item.images.medium}}" 
+                mode="widthFix"
+                lazy-load="true"
+            ></image>
+        </view>
+        <view class="bottom-container">
+            <view class="bottom-tool" id='{{item.id}}' bindtap='showDetail'>
+                <text class="bottom-tool-text">查看详情</text>
+            </view>
+            <view class="bottom-tool">
+                <text class="bottom-tool-text">收藏</text>
+            </view>
+            <view class="bottom-tool">
+                <text class="bottom-tool-text">喜欢</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>

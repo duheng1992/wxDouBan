@@ -1,0 +1,38 @@
+
+<view class="settings">
+  <form bindsubmit='addShop'>
+    <input placeholder='用户名' bindinput='valueHandler' data-type="name" value="{{name}}" name="name"/>
+    <input placeholder='电话' bindinput='valueHandler' data-type="phone" value="{{phone}}" name="phone"/>
+    <view bindtap='chooseLocation'>
+      <image src="../../images/location.png" class='img' style="width:40rpx;height:40rpx;"></image>
+      <input type="text" placeholder='地址' disabled value="{{address}}" name="address"/>
+    </view>
+
+    <picker range='{{time}}' bindchange='changeTime' data-type="begin" name="begin">
+      <view>
+        <text>开始时间:{{begin}}点</text>
+      </view>
+    </picker>
+    <picker range="{{time}}" bindchange='changeTime' data-type="end" name="end">
+      <view>
+        <text>结束时间:{{end}}点</text>
+      </view>
+    </picker>
+    <picker range='{{categories}}' range-key='name' bindchange='saveType' value="{{index}}">
+      <view>
+        <text>用户类型:{{shopType}}</text>
+      </view>
+    </picker>
+    <checkbox-group bindchange="getWeek" name="workDates">
+      <checkbox value="一">周一</checkbox>
+      <checkbox value="二">周二</checkbox>
+      <checkbox value="三">周三</checkbox>
+      <checkbox value="四">周四</checkbox>
+      <checkbox value="五">周五</checkbox>
+      <checkbox value="六">周六</checkbox>
+      <checkbox value="日">周日</checkbox>
+    </checkbox-group>
+
+    <button type="primary" form-type='submit'>提交</button>
+  </form>
+</view>

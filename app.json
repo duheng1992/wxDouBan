@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/shop/shop",
+    "pages/movieDetail/movieDetail",
+    "pages/cart/cart",
+    "pages/mine/mine",
+    "pages/onHot/onHot",
+    "pages/settings/settings",
+    "pages/video/video"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF6600",
+    "navigationBarTitleText": "小杜电影",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eeeeee"
+  },
+  "tabBar": {
+    "color": "#522222",
+    "selectedColor": "#FF6600",
+    "borderStyle": "#522222",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message-active.png",
+        "text": "TOP250"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/contact.png",
+        "selectedIconPath": "images/contact-active.png",
+        "text": "电影全搜索"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "selectedIconPath": "images/profile-active.png",
+        "iconPath": "images/profile.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}
